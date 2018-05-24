@@ -10,7 +10,7 @@ import { NgModule } from '@angular/core';
   Routes
 
 */
-
+import {RouterModule,Routes} from '@angular/router';
 
 
 /*
@@ -29,7 +29,11 @@ import { NgModule } from '@angular/core';
 */
 
 const app_routes: Routes = [
+  //Redirect empty route to /customers
+  { path: '', pathMatch:'full', redirectTo: '/customers' },
 
+  //Catch any unfound routes and redirect to home page
+  { path: '**', pathMatch:'full', redirectTo: '/customers' } 
 
 ];
 
@@ -44,7 +48,7 @@ const app_routes: Routes = [
 
 */
 @NgModule({
-  imports: [  ],
+  imports: [ RouterModule.forRoot(app_routes) ],
   exports: [ RouterModule ]
 })
 export class AppRoutingModule { }

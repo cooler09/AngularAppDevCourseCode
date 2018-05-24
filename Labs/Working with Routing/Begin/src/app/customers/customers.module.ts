@@ -16,12 +16,11 @@ import { NgModule }      from '@angular/core';
   statements again in this module.
 
 */
-
-
+import {CustomersRoutingModule } from './customers-routing.module';
 import { SharedModule }   from '../shared/shared.module';
 
 @NgModule({
-  imports:      [ SharedModule ],
-  declarations: [  ]
+  imports:      [ SharedModule,CustomersRoutingModule ],
+  declarations: [ CustomersRoutingModule.components ]
 })
 export class CustomersModule { }

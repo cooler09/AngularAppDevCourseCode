@@ -13,6 +13,11 @@
   CustomersGridComponent  ./customers-grid.component
 
 */
+import {NgModule } from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {CustomersComponent} from './customers.component';
+import {CustomersCardComponent} from './customers-card.component';
+import {CustomersGridComponent} from './customers-grid.component';
 
 
 
@@ -30,6 +35,9 @@
 
 
 */
+const routes: Routes = [
+  { path: 'customers', component: CustomersComponent }
+];
 
 
 
@@ -47,8 +55,8 @@
 
 
 @NgModule({
-  imports: [  ],
-  exports: [  ]
+  imports: [ RouterModule.forChild(routes) ],
+  exports: [ RouterModule ]
 })
 export class CustomersRoutingModule {
 
@@ -66,5 +74,5 @@ export class CustomersRoutingModule {
 
   */
 
-  static components = [  ];
+  static components = [ CustomersComponent, CustomersCardComponent, CustomersGridComponent ];
 }

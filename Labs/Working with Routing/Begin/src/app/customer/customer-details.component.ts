@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   These items will be used to retrieve a route parameter from the URL.
 
 */
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Route } from '@angular/router';
 
 import { ICustomer } from '../shared/interfaces';
 import { DataService } from '../core/services/data.service';
@@ -32,7 +32,7 @@ export class CustomerDetailsComponent implements OnInit {
 
   */
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private route: ActivatedRoute) { }
 
   ngOnInit() {
       /*
@@ -64,7 +64,14 @@ export class CustomerDetailsComponent implements OnInit {
                  });
 
       */
-
+     this.route.parent.params.subscribe((params: Params) => {
+      let id = +params['id'];
+      this.dataService.getCustomer(id)
+                 .subscribe((customer: ICustomer) => {
+                   this.customer = customer;
+                   this.mapEnabled = true;
+                 });
+    });
 
 
   }

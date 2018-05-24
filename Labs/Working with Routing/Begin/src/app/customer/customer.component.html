@@ -21,7 +21,8 @@
                            will automatically add the "active" CSS class to the anchor tag.
                         
                     -->
-                    <a>
+                    <a routerLink="details"
+                    routerLinkActive="active">
                        <span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;Customer Details
                     </a>
                 </li>
@@ -45,7 +46,7 @@
                 Add the <router-outlet> directive below. This is where child routes will be loaded into.
                 
             -->
-
+            <router-outlet></router-outlet>
 
             <br />
             <br />
@@ -58,7 +59,7 @@
                 It should be assigned a value of "/customers".
                 
             -->
-            <a>View all Customers</a>
+            <a routerLink="/customers" >View all Customers</a>
         </div>
     </div>
 </div>
